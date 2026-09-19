@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA0hsItJunIQ6VdPEw9D4AHPqBA_X3wzRQ",
-  authDomain: "gabe-advanced-internship.firebaseapp.com",
-  projectId: "gabe-advanced-internship",
-  storageBucket: "gabe-advanced-internship.firebasestorage.app",
-  messagingSenderId: "334687288511",
-  appId: "1:334687288511:web:62582c524ce6237aa9da0a"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  storageBucket: "gabe-summarist.firebasestorage.app",
+  messagingSenderId: "181737401783",
+  appId: "1:181737401783:web:7a58a37e804acb86580c32"
 };
 
 // Initialize Firebase
