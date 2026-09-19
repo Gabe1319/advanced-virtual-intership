@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --color-brand-500: #032b41
+}
+
 
 body {
   background: var(--background);

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { BiCrown } from "react-icons/bi";
 import {
@@ -10,18 +11,26 @@ import {
 } from "react-icons/ri";
 import logo from "/assets/logo.png";
 import landing from "/assets/landing.png";
-
+import { useState } from "react";
+import Login from "./components/login";
 
 export default function Home() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <>
       <nav className="nav">
+        {showForm && <Login />}
         <div className="nav__wrapper">
           <figure className="nav__img--mask">
             <img className="nav__img" src="/assets/logo.png" alt="logo" />
           </figure>
           <ul className="nav__list--wrapper">
-            <li className="nav__list nav__list--login">Login</li>
+            <li
+              className="nav__list nav__list--login"
+              onClick={() => setShowForm((prev) => !prev)}
+            >
+              Login
+            </li>
             <li className="nav__list nav__list--mobile">About</li>
             <li className="nav__list nav__list--mobile">Contact</li>
             <li className="nav__list nav__list--mobile">Help</li>
@@ -44,7 +53,7 @@ export default function Home() {
                   <br className="remove--tablet" />
                   and even people who don’t like to read.
                 </div>
-                <button className="btn home__cta--btn">Login</button>
+                <button className="btn home__cta--btn" onClick={() => setShowForm((prev) => !prev)}>Login</button>
               </div>
               <figure className="landing__image--mask">
                 <img src="/assets/landing.png" alt="landing" />
@@ -247,7 +256,7 @@ export default function Home() {
               </div>
             </div>
             <div className="reviews__btn--wrapper">
-              <button className="btn home__cta--btn">Login</button>
+              <button className="btn home__cta--btn" onClick={() => setShowForm((prev) => !prev)}>Login</button>
             </div>
           </div>
         </div>
