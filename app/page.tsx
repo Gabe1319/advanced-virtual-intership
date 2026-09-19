@@ -16,10 +16,11 @@ import Login from "./components/login";
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
+  const [user, setUser] = useState<any>(null);
   return (
     <>
       <nav className="nav">
-        {showForm && <Login />}
+        {showForm && <Login setUser={setUser} />}
         <div className="nav__wrapper">
           <figure className="nav__img--mask">
             <img className="nav__img" src="/assets/logo.png" alt="logo" />
