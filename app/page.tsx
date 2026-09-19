@@ -7,13 +7,14 @@ import {
   RiFileTextLine,
   RiStarFill,
   RiStarHalfFill,
-} from "react-icons/ri"
-import logo from "/assets/logo.png"
-import landing from "/assets/landing.png"
+} from "react-icons/ri";
+import logo from "/assets/logo.png";
+import landing from "/assets/landing.png";
+
 
 export default function Home() {
   return (
-    <body>
+    <>
       <nav className="nav">
         <div className="nav__wrapper">
           <figure className="nav__img--mask">
@@ -374,6 +375,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </body>
+    </>
   );
 }
