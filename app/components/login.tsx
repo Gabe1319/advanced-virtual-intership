@@ -9,6 +9,7 @@ import {
 import { Dispatch, SetStateAction, useState } from "react";
 import { IoClose, IoPerson } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { TfiLayoutLineSolid } from "react-icons/tfi";
 
 function Login({
   setUser = () => {},
@@ -100,6 +101,9 @@ function Login({
           </span>
           Login as Guest
         </button>
+        <div>
+          <span className="mx-2 text-gray-400">or</span>
+        </div>
         <form
           className="flex w-full flex-col gap-3"
           onSubmit={(e) => {
