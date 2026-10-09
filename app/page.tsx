@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <nav className="nav">
-        {showForm && <Login setUser={setUser} />}
+        {showForm && <Login setUser={setUser} setShowForm={setShowForm}/>}
         <div className="nav__wrapper">
           <figure className="nav__img--mask">
             <img className="nav__img" src="/assets/logo.png" alt="logo" />
