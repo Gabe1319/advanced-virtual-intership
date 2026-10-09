@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { Dispatch, SetStateAction, useState } from "react";
 import { IoClose, IoPerson } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 function Login({
   setUser = () => {},
@@ -22,16 +23,16 @@ function Login({
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
   };
-
-  signInAnonymously(auth)
-    .then(() => {
-      // Signed in..
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ...
-    });
+ const router = useRouter();
+  // signInAnonymously(auth)
+  //   .then(() => {
+  //     // Signed in..
+  //   })
+  //   .catch((error) => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // ...
+  //   });
 
   function register() {
     createUserWithEmailAndPassword(auth, data.email, data.password)
@@ -49,6 +50,21 @@ function Login({
       .then((userCredential) => {
         const user = userCredential.user;
         setUser?.(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      router.push("/for-you");
+  }
+ 
+
+  function loginAsGuest() {
+    signInAnonymously(auth)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser?.(user);
+        setShowForm(false);
+        router.push("/for-you");
       })
       .catch((error) => {
         console.error(error);
@@ -74,7 +90,7 @@ function Login({
           className="relative flex bg-brand-500 text-white text-base justify-center items-center w-full h-10 rounded-sm"
           type="button"
           style={{ backgroundColor: "#032b41" }}
-          onClick={() => signInAnonymously(auth)}
+          onClick={loginAsGuest}
         >
           <span
             aria-hidden="true"
